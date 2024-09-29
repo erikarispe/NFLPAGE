@@ -1,0 +1,244 @@
+The Components file here is a folder in the react app.
+The components are seperate jsx files seperated by their titles.
+
+
+HOMEPAGECOMPONENET.JSX
+
+import "./NFLBackground.css"; // Import CSS file for styles
+
+const NFLBackground = () => {
+  return (
+    <>
+      <div className="nfl-background">
+        {/* You can place other content here if needed */}
+      </div>
+    </>
+  );
+};
+
+export default NFLBackground;
+
+
+NAVCOMPONENT.JSX
+
+import { Link } from "react-router-dom";
+const NavBar = () => {
+  return (
+    <>
+      <nav className="navbar bg-body-tertiary">
+        <div className="container-fluid">
+          <Link className="navbar-brand" to="/">
+            <img
+              src="/src/assets/football.svg"
+              alt="Logo"
+              width="30"
+              height="24"
+              className="d-inline-block align-text-top"
+            />
+            NFL
+          </Link>
+          {/* Use Link components for navigation */}
+          <Link className="nav-link" to="/teams">
+            Teams
+          </Link>
+          <Link className="nav-link" to="/schedule">
+            Schedule
+          </Link>
+        </div>
+      </nav>
+    </>
+  );
+};
+
+export default NavBar;
+
+
+TEAMSCOMPONENENT.JSX
+
+import { useState } from "react";
+
+const nflTeams = [
+  "Arizona Cardinals",
+  "Atlanta Falcons",
+  "Baltimore Ravens",
+  "Buffalo Bills",
+  "Carolina Panthers",
+  "Chicago Bears",
+  "Cincinnati Bengals",
+  "Cleveland Browns",
+  "Dallas Cowboys",
+  "Denver Broncos",
+  "Detroit Lions",
+  "Green Bay Packers",
+  "Houston Texans",
+  "Indianapolis Colts",
+  "Jacksonville Jaguars",
+  "Kansas City Chiefs",
+  "Las Vegas Raiders",
+  "Los Angeles Chargers",
+  "Los Angeles Rams",
+  "Miami Dolphins",
+  "Minnesota Vikings",
+  "New England Patriots",
+  "New Orleans Saints",
+  "New York Giants",
+  "New York Jets",
+  "Philadelphia Eagles",
+  "Pittsburgh Steelers",
+  "San Francisco 49ers",
+  "Seattle Seahawks",
+  "Tampa Bay Buccaneers",
+  "Tennessee Titans",
+  "Washington Commanders",
+];
+
+const NflTeamsFunction = () => {
+  const [selectedIndex, setSelectedIndex] = useState(-1);
+  return (
+    <>
+      <h1 className="text-white">NFL Teams</h1>
+      <ul className="list-group p-3 mb-2 bg-dark text-white">
+        {nflTeams.map((team, index) => (
+          <li
+            className={
+              selectedIndex === index
+                ? "list-group-item active"
+                : "list-group-item"
+            }
+            key={team}
+            onClick={() => {
+              setSelectedIndex(index);
+            }}
+          >
+            {team}
+          </li>
+        ))}
+      </ul>
+    </>
+  );
+};
+
+export default NflTeamsFunction;
+
+
+SCHEDULECOMPONENT.JSX
+
+const NflSchedule = [
+  // Week 4
+  { week: 4, home: "Green Bay Packers", away: "Detroit Lions" },
+  { week: 4, home: "Buffalo Bills", away: "Miami Dolphins" },
+  { week: 4, home: "Philadelphia Eagles", away: "Washington Commanders" },
+  { week: 4, home: "Dallas Cowboys", away: "New England Patriots" },
+  { week: 4, home: "Tennessee Titans", away: "Cincinnati Bengals" },
+  { week: 4, home: "New Orleans Saints", away: "Tampa Bay Buccaneers" },
+  { week: 4, home: "Los Angeles Chargers", away: "Las Vegas Raiders" },
+  { week: 4, home: "Arizona Cardinals", away: "San Francisco 49ers" },
+  { week: 4, home: "Seattle Seahawks", away: "New York Giants" },
+  { week: 4, home: "Minnesota Vikings", away: "Chicago Bears" },
+  { week: 4, home: "Atlanta Falcons", away: "Jacksonville Jaguars" },
+  { week: 4, home: "Pittsburgh Steelers", away: "Houston Texans" },
+
+  // Week 5
+  { week: 5, home: "Chicago Bears", away: "Minnesota Vikings" },
+  { week: 5, home: "San Francisco 49ers", away: "Dallas Cowboys" },
+  { week: 5, home: "Kansas City Chiefs", away: "Las Vegas Raiders" },
+  { week: 5, home: "New York Jets", away: "Philadelphia Eagles" },
+  { week: 5, home: "Cincinnati Bengals", away: "Tennessee Titans" },
+  { week: 5, home: "New Orleans Saints", away: "New England Patriots" },
+  { week: 5, home: "Buffalo Bills", away: "Jacksonville Jaguars" },
+  { week: 5, home: "Atlanta Falcons", away: "Tampa Bay Buccaneers" },
+  { week: 5, home: "Los Angeles Chargers", away: "Arizona Cardinals" },
+  { week: 5, home: "Pittsburgh Steelers", away: "Baltimore Ravens" },
+
+  // Week 6
+  { week: 6, home: "Minnesota Vikings", away: "Chicago Bears" },
+  { week: 6, home: "Miami Dolphins", away: "Carolina Panthers" },
+  { week: 6, home: "Cleveland Browns", away: "San Francisco 49ers" },
+  { week: 6, home: "New England Patriots", away: "New York Jets" },
+  { week: 6, home: "Seattle Seahawks", away: "Tennessee Titans" },
+  { week: 6, home: "Los Angeles Chargers", away: "Dallas Cowboys" },
+  { week: 6, home: "New Orleans Saints", away: "Atlanta Falcons" },
+  { week: 6, home: "Houston Texans", away: "Buffalo Bills" },
+
+  // Week 7
+  { week: 7, home: "New York Giants", away: "Washington Commanders" },
+  { week: 7, home: "Pittsburgh Steelers", away: "Cleveland Browns" },
+  { week: 7, home: "Green Bay Packers", away: "Denver Broncos" },
+  { week: 7, home: "Baltimore Ravens", away: "Los Angeles Rams" },
+  { week: 7, home: "Kansas City Chiefs", away: "Miami Dolphins" },
+  { week: 7, home: "Philadelphia Eagles", away: "San Francisco 49ers" },
+
+  // Week 8
+  { week: 8, home: "Tennessee Titans", away: "Atlanta Falcons" },
+  { week: 8, home: "Buffalo Bills", away: "New York Jets" },
+  { week: 8, home: "Cincinnati Bengals", away: "Jacksonville Jaguars" },
+  { week: 8, home: "Seattle Seahawks", away: "Minnesota Vikings" },
+
+  // Week 9
+  { week: 9, home: "New England Patriots", away: "Washington Commanders" },
+  { week: 9, home: "Arizona Cardinals", away: "Tampa Bay Buccaneers" },
+  { week: 9, home: "Houston Texans", away: "Cleveland Browns" },
+
+  // Week 10
+  { week: 10, home: "Los Angeles Chargers", away: "Kansas City Chiefs" },
+  { week: 10, home: "Chicago Bears", away: "Philadelphia Eagles" },
+  { week: 10, home: "Pittsburgh Steelers", away: "New Orleans Saints" },
+
+  // Week 11
+  { week: 11, home: "Denver Broncos", away: "Miami Dolphins" },
+  { week: 11, home: "Green Bay Packers", away: "Minnesota Vikings" },
+  { week: 11, home: "Tennessee Titans", away: "Indianapolis Colts" },
+
+  // Week 12
+  { week: 12, home: "New York Giants", away: "Buffalo Bills" },
+  { week: 12, home: "San Francisco 49ers", away: "Los Angeles Rams" },
+
+  // Week 13
+  { week: 13, home: "Cleveland Browns", away: "Cincinnati Bengals" },
+  { week: 13, home: "Pittsburgh Steelers", away: "Tennessee Titans" },
+
+  // Week 14
+  { week: 14, home: "Atlanta Falcons", away: "Tampa Bay Buccaneers" },
+
+  // Week 15
+  { week: 15, home: "New England Patriots", away: "Miami Dolphins" },
+
+  // Week 16
+  { week: 16, home: "Indianapolis Colts", away: "New York Jets" },
+
+  // Week 17
+  { week: 17, home: "Green Bay Packers", away: "Chicago Bears" },
+
+  // Week 18
+  { week: 18, home: "Baltimore Ravens", away: "Cincinnati Bengals" },
+  { week: 18, home: "Seattle Seahawks", away: "San Francisco 49ers" },
+  { week: 18, home: "Tennessee Titans", away: "Jacksonville Jaguars" },
+];
+
+const ScheduleFunction = () => {
+  return (
+    <>
+      <h1 className="text-white">NFL Schedule</h1>
+      <table className="table table-striped table-bordered">
+        <thead className="thead-dark">
+          <tr>
+            <th>Week</th>
+            <th>Home Team</th>
+            <th>Away Team</th>
+          </tr>
+        </thead>
+        <tbody>
+          {NflSchedule.map((game) => (
+            <tr key={`${game.week}-${game.home}-${game.away}`}>
+              <td>{game.week}</td>
+              <td>{game.home}</td>
+              <td>{game.away}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </>
+  );
+};
+
+export default ScheduleFunction;
