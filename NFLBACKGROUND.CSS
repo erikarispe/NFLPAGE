@@ -1,0 +1,28 @@
+.nfl-background {
+    position: fixed;
+    /* Fixes the background to cover the entire viewport */
+    top: 0;
+    /* Aligns to the top of the viewport */
+    left: 0;
+    /* Aligns to the left of the viewport */
+    width: 100%;
+    /* Covers the entire width */
+    height: 100%;
+    /* Covers the entire height */
+    background-image: url('/src/assets/background.jpeg');
+    /* Your background image */
+    background-size:contain ;
+    /* Ensures the image covers the whole area */
+    background-position: center;
+    /* Centers the background image */
+    z-index: -1;
+    /* Places the background behind other content */
+}
+.homepage-content {
+    margin-top: 100px;
+    /* Adjust to move it further down */
+    text-align: center;
+    /* Center the text */
+    color: white;
+    /* Ensure the text is visible */
+}
